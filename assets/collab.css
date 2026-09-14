@@ -7,4 +7,35 @@ body.edit-mode [data-field]:hover{outline:1px dashed #26b78a;outline-offset:2px}
 body.edit-mode [data-field]:focus{outline:2px solid #26b78a;outline-offset:2px;background:rgba(38,183,138,.045)}
 body.view-mode [data-field]{cursor:default}
 .collab-config-error{position:fixed;inset:18px 18px auto 18px;z-index:999999;background:#7a1515;color:#fff;padding:13px 16px;border-radius:9px;font:13px/1.6 Tahoma,Arial,sans-serif;direction:rtl}
+
+/* Grade 9 uses Arabic RTL mathematical reading order.
+   The logical HTML remains unchanged; these rules place the first mathematical
+   term on the right, keep division/equalities in RTL reading order, and place
+   the negative sign on the right side of Arabic numerals. */
+body.g9-arabic-math .armathrow,
+body.g9-arabic-math .mathseq,
+body.g9-arabic-math .eqfrac,
+body.g9-arabic-math .rel-ar,
+body.g9-arabic-math .rel-ar .pair,
+body.g9-arabic-math .setvals,
+body.g9-arabic-math .optmath,
+body.g9-arabic-math .rel-center,
+body.g9-arabic-math .temp{direction:rtl!important;unicode-bidi:isolate}
+body.g9-arabic-math .armathrow,
+body.g9-arabic-math .rel-center{flex-direction:row!important}
+body.g9-arabic-math .mathseq .mvar,
+body.g9-arabic-math .mathseq .mnum,
+body.g9-arabic-math .mathseq .mop,
+body.g9-arabic-math .armathrow .tok,
+body.g9-arabic-math .armathrow .op,
+body.g9-arabic-math .rel-ar .anum,
+body.g9-arabic-math .setvals .anum,
+body.g9-arabic-math .temp .anum,
+body.g9-arabic-math .temp .deg,
+body.g9-arabic-math .temp .mvar{direction:rtl!important;unicode-bidi:isolate}
+body.g9-arabic-math .opttext,
+body.g9-arabic-math .qline,
+body.g9-arabic-math .ab-table td{direction:rtl!important;unicode-bidi:plaintext;text-align:right}
+body.g9-arabic-math .ab-table .math{direction:rtl!important;unicode-bidi:isolate}
+
 @media print{.collab-toolbar,.collab-config-error{display:none!important}[data-field]{outline:none!important;background:transparent!important}}
