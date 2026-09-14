@@ -15,27 +15,26 @@
   const db = window.supabase.createClient(cfg.supabaseUrl, cfg.publishableKey);
   const hashParams = new URLSearchParams(location.hash.replace(/^#/, ''));
   const editKey = hashParams.get('edit') || '';
+  const isGrade9 = /^g9(?:-|$)/.test(docId) || /\/grade-9\//.test(location.pathname);
+  if(isGrade9) document.body.classList.add('g9-arabic-math');
 
-  // Some subset files were created before every answer choice had an explicit
+  // Some files were created before every answer choice had an explicit
   // data-field. Add stable editable fields at runtime without changing any
   // worksheet content, styling, numbering, or layout.
   function ensureEditableChoices(){
     document.querySelectorAll('.qbox').forEach((qbox,qIndex)=>{
       const choices=[...qbox.querySelectorAll('.opt, .truth-option')];
       choices.forEach((choice,optionIndex)=>{
-        // Existing explicitly editable option: leave it exactly as-is.
         if(choice.querySelector('[data-field]')) return;
 
         const label=choice.querySelector(':scope > .optlabel');
-        let nodes=[...choice.childNodes].filter(node=>{
+        const nodes=[...choice.childNodes].filter(node=>{
           if(node===label) return false;
           if(node.nodeType===Node.TEXT_NODE) return node.textContent.trim().length>0;
           return true;
         });
         if(!nodes.length) return;
 
-        // If the visible option is already one element, make that exact element editable.
-        // Otherwise wrap the visible option nodes, keeping (أ)/(ب)/(ج)/(د) fixed.
         let target;
         if(nodes.length===1 && nodes[0].nodeType===Node.ELEMENT_NODE){
           target=nodes[0];
@@ -50,7 +49,22 @@
     });
   }
 
+  // Make standalone equations/relations before the choices editable as one
+  // object. This is especially important for Grade 9 Arabic equations.
+  function ensureEditableEquations(){
+    document.querySelectorAll('.qbox').forEach((qbox,qIndex)=>{
+      const blocks=[...qbox.querySelectorAll(
+        ':scope > .armathrow, :scope > .formula.center, :scope > .armath.center, :scope > .rel-center, :scope > .piecewise'
+      )];
+      blocks.forEach((el,eqIndex)=>{
+        if(el.hasAttribute('data-field') || el.closest('[data-field]')) return;
+        el.dataset.field=`auto-q${qIndex+1}-equation-${eqIndex+1}`;
+      });
+    });
+  }
+
   ensureEditableChoices();
+  ensureEditableEquations();
 
   const fields = [...document.querySelectorAll('[data-field]')];
   const timers = new Map();
@@ -88,7 +102,7 @@
       if(el) el.innerHTML=sanitize(row.value);
     }
     suppressLocalSave=false;
-    setStatus(editKey?'متصل ✓':'متصل ✓');
+    setStatus('متصل ✓');
   }
 
   async function saveField(el){
@@ -102,8 +116,10 @@
       p_value:value,
       p_edit_key:editKey
     });
-    if(error){console.error(error);setStatus(error.message?.includes('Invalid edit key')?'رابط التحرير غير صحيح':'فشل الحفظ');}
-    else setStatus('تم الحفظ ✓');
+    if(error){
+      console.error(error);
+      setStatus(error.message?.includes('Invalid edit key')?'رابط التحرير غير صحيح':'فشل الحفظ');
+    } else setStatus('تم الحفظ ✓');
   }
 
   if(editKey){
