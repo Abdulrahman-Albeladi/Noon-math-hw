@@ -1,0 +1,74 @@
+[
+  {
+    "grade": 9,
+    "set": 1,
+    "questions": "grade-9/set-1-questions.html",
+    "answers": "grade-9/set-1-answers.html"
+  },
+  {
+    "grade": 9,
+    "set": 2,
+    "questions": "grade-9/set-2-questions.html",
+    "answers": "grade-9/set-2-answers.html"
+  },
+  {
+    "grade": 9,
+    "set": 3,
+    "questions": "grade-9/set-3-questions.html",
+    "answers": "grade-9/set-3-answers.html"
+  },
+  {
+    "grade": 10,
+    "set": 1,
+    "questions": "grade-10/set-1-questions.html",
+    "answers": "grade-10/set-1-answers.html"
+  },
+  {
+    "grade": 10,
+    "set": 2,
+    "questions": "grade-10/set-2-questions.html",
+    "answers": "grade-10/set-2-answers.html"
+  },
+  {
+    "grade": 10,
+    "set": 3,
+    "questions": "grade-10/set-3-questions.html",
+    "answers": "grade-10/set-3-answers.html"
+  },
+  {
+    "grade": 11,
+    "set": 1,
+    "questions": "grade-11/set-1-questions.html",
+    "answers": "grade-11/set-1-answers.html"
+  },
+  {
+    "grade": 11,
+    "set": 2,
+    "questions": "grade-11/set-2-questions.html",
+    "answers": "grade-11/set-2-answers.html"
+  },
+  {
+    "grade": 11,
+    "set": 3,
+    "questions": "grade-11/set-3-questions.html",
+    "answers": "grade-11/set-3-answers.html"
+  },
+  {
+    "grade": 12,
+    "set": 1,
+    "questions": "grade-12/set-1-questions.html",
+    "answers": "grade-12/set-1-answers.html"
+  },
+  {
+    "grade": 12,
+    "set": 2,
+    "questions": "grade-12/set-2-questions.html",
+    "answers": "grade-12/set-2-answers.html"
+  },
+  {
+    "grade": 12,
+    "set": 3,
+    "questions": "grade-12/set-3-questions.html",
+    "answers": "grade-12/set-3-answers.html"
+  }
+]
