@@ -15,6 +15,43 @@
   const db = window.supabase.createClient(cfg.supabaseUrl, cfg.publishableKey);
   const hashParams = new URLSearchParams(location.hash.replace(/^#/, ''));
   const editKey = hashParams.get('edit') || '';
+
+  // Some subset files were created before every answer choice had an explicit
+  // data-field. Add stable editable fields at runtime without changing any
+  // worksheet content, styling, numbering, or layout.
+  function ensureEditableChoices(){
+    document.querySelectorAll('.qbox').forEach((qbox,qIndex)=>{
+      const choices=[...qbox.querySelectorAll('.opt, .truth-option')];
+      choices.forEach((choice,optionIndex)=>{
+        // Existing explicitly editable option: leave it exactly as-is.
+        if(choice.querySelector('[data-field]')) return;
+
+        const label=choice.querySelector(':scope > .optlabel');
+        let nodes=[...choice.childNodes].filter(node=>{
+          if(node===label) return false;
+          if(node.nodeType===Node.TEXT_NODE) return node.textContent.trim().length>0;
+          return true;
+        });
+        if(!nodes.length) return;
+
+        // If the visible option is already one element, make that exact element editable.
+        // Otherwise wrap the visible option nodes, keeping (أ)/(ب)/(ج)/(د) fixed.
+        let target;
+        if(nodes.length===1 && nodes[0].nodeType===Node.ELEMENT_NODE){
+          target=nodes[0];
+        } else {
+          target=document.createElement('span');
+          target.className='editable-choice';
+          for(const node of nodes) target.appendChild(node);
+          choice.appendChild(target);
+        }
+        target.dataset.field=`auto-q${qIndex+1}-option-${optionIndex+1}`;
+      });
+    });
+  }
+
+  ensureEditableChoices();
+
   const fields = [...document.querySelectorAll('[data-field]')];
   const timers = new Map();
   let suppressLocalSave = false;
