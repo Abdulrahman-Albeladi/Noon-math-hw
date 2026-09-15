@@ -1,6 +1,20 @@
 (() => {
   const cfg = window.WORKSHEET_CONFIG || {};
   const docId = document.body.dataset.docId;
+
+  // Use Noon's mark as the browser-tab icon on every worksheet page.
+  function ensureFavicon(){
+    let icon=document.querySelector('link[rel~="icon"]');
+    if(!icon){
+      icon=document.createElement('link');
+      icon.rel='icon';
+      icon.type='image/svg+xml';
+      document.head.appendChild(icon);
+    }
+    icon.href='../assets/noon-favicon.svg';
+  }
+  ensureFavicon();
+
   const invalidCfg = !cfg.supabaseUrl || !cfg.publishableKey ||
     cfg.supabaseUrl.includes('PASTE_') || cfg.publishableKey.includes('PASTE_');
 
