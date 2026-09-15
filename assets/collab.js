@@ -19,19 +19,20 @@
   if(isGrade9) document.body.classList.add('g9-arabic-math');
 
   // Keep worksheet cover titles consistent across all subset question pages.
+  // The first line shows only the worksheet number; the topic remains in the second line.
   const worksheetTitles = {
-    'g9-set1-questions':'ورقة عمل ١: المعادلات الأساسية وحل المعادلات ذات الخطوة الواحدة',
-    'g9-set2-questions':'ورقة عمل ٢: حل المعادلات المتعددة الخطوات والمتغير في طرفي المعادلة',
-    'g9-set3-questions':'ورقة عمل ٣: معادلات القيمة المطلقة والعلاقات',
-    'g10-set1-questions':'ورقة عمل ١: التبرير الاستقرائي والتخمين',
-    'g10-set2-questions':'ورقة عمل ٢: المنطق والعبارات الشرطية',
-    'g10-set3-questions':'ورقة عمل ٣: التبرير الاستنتاجي',
-    'g11-set1-questions':'ورقة عمل ١: خصائص الأعداد الحقيقية والعلاقات والدوال',
-    'g11-set2-questions':'ورقة عمل ٢: الدوال الخاصة',
-    'g11-set3-questions':'ورقة عمل ٣: تمثيل المتباينات الخطية ومتباينات القيمة المطلقة بيانيًا',
-    'g12-set1-questions':'ورقة عمل ١: الدوال وتمثيل المجموعات والمجال والدوال متعددة التعريف',
-    'g12-set2-questions':'ورقة عمل ٢: تدريبات على الدوال وتحليل التمثيلات البيانية',
-    'g12-set3-questions':'ورقة عمل ٣: المقاطع وأصفار الدوال والدوال الزوجية والفردية وتحليل الدوال'
+    'g9-set1-questions':'ورقة عمل ١',
+    'g9-set2-questions':'ورقة عمل ٢',
+    'g9-set3-questions':'ورقة عمل ٣',
+    'g10-set1-questions':'ورقة عمل ١',
+    'g10-set2-questions':'ورقة عمل ٢',
+    'g10-set3-questions':'ورقة عمل ٣',
+    'g11-set1-questions':'ورقة عمل ١',
+    'g11-set2-questions':'ورقة عمل ٢',
+    'g11-set3-questions':'ورقة عمل ٣',
+    'g12-set1-questions':'ورقة عمل ١',
+    'g12-set2-questions':'ورقة عمل ٢',
+    'g12-set3-questions':'ورقة عمل ٣'
   };
   function applyWorksheetTitle(){
     const title=worksheetTitles[docId];
