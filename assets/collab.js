@@ -1,20 +1,6 @@
 (() => {
   const cfg = window.WORKSHEET_CONFIG || {};
   const docId = document.body.dataset.docId;
-
-  // Use Noon's mark as the browser-tab icon on every worksheet page.
-  function ensureFavicon(){
-    let icon=document.querySelector('link[rel~="icon"]');
-    if(!icon){
-      icon=document.createElement('link');
-      icon.rel='icon';
-      icon.type='image/svg+xml';
-      document.head.appendChild(icon);
-    }
-    icon.href='../assets/noon-favicon.svg';
-  }
-  ensureFavicon();
-
   const invalidCfg = !cfg.supabaseUrl || !cfg.publishableKey ||
     cfg.supabaseUrl.includes('PASTE_') || cfg.publishableKey.includes('PASTE_');
 
@@ -33,20 +19,19 @@
   if(isGrade9) document.body.classList.add('g9-arabic-math');
 
   // Keep worksheet cover titles consistent across all subset question pages.
-  // The first line shows only the worksheet number; the topic remains in the second line.
   const worksheetTitles = {
-    'g9-set1-questions':'ورقة عمل ١',
-    'g9-set2-questions':'ورقة عمل ٢',
-    'g9-set3-questions':'ورقة عمل ٣',
-    'g10-set1-questions':'ورقة عمل ١',
-    'g10-set2-questions':'ورقة عمل ٢',
-    'g10-set3-questions':'ورقة عمل ٣',
-    'g11-set1-questions':'ورقة عمل ١',
-    'g11-set2-questions':'ورقة عمل ٢',
-    'g11-set3-questions':'ورقة عمل ٣',
-    'g12-set1-questions':'ورقة عمل ١',
-    'g12-set2-questions':'ورقة عمل ٢',
-    'g12-set3-questions':'ورقة عمل ٣'
+    'g9-set1-questions':'ورقة عمل ١: المعادلات الأساسية وحل المعادلات ذات الخطوة الواحدة',
+    'g9-set2-questions':'ورقة عمل ٢: حل المعادلات المتعددة الخطوات والمتغير في طرفي المعادلة',
+    'g9-set3-questions':'ورقة عمل ٣: معادلات القيمة المطلقة والعلاقات',
+    'g10-set1-questions':'ورقة عمل ١: التبرير الاستقرائي والتخمين',
+    'g10-set2-questions':'ورقة عمل ٢: المنطق والعبارات الشرطية',
+    'g10-set3-questions':'ورقة عمل ٣: التبرير الاستنتاجي',
+    'g11-set1-questions':'ورقة عمل ١: خصائص الأعداد الحقيقية والعلاقات والدوال',
+    'g11-set2-questions':'ورقة عمل ٢: الدوال الخاصة',
+    'g11-set3-questions':'ورقة عمل ٣: تمثيل المتباينات الخطية ومتباينات القيمة المطلقة بيانيًا',
+    'g12-set1-questions':'ورقة عمل ١: الدوال وتمثيل المجموعات والمجال والدوال متعددة التعريف',
+    'g12-set2-questions':'ورقة عمل ٢: تدريبات على الدوال وتحليل التمثيلات البيانية',
+    'g12-set3-questions':'ورقة عمل ٣: المقاطع وأصفار الدوال والدوال الزوجية والفردية وتحليل الدوال'
   };
   function applyWorksheetTitle(){
     const title=worksheetTitles[docId];
@@ -56,22 +41,6 @@
     document.title=title;
   }
   applyWorksheetTitle();
-
-  // Brand every printable worksheet page with the Noon logo.
-  function ensurePageLogos(){
-    document.querySelectorAll('.page').forEach(page=>{
-      if(page.querySelector(':scope > .worksheet-brand-logo')) return;
-      const img=document.createElement('img');
-      img.className='worksheet-brand-logo';
-      img.src='../assets/noon-logo.svg';
-      img.alt='';
-      img.setAttribute('aria-hidden','true');
-      img.draggable=false;
-      img.style.cssText='position:absolute;left:6mm;top:5mm;width:25mm;height:auto;z-index:20;pointer-events:none;user-select:none;';
-      page.appendChild(img);
-    });
-  }
-  ensurePageLogos();
 
   // Some files were created before every answer choice had an explicit
   // data-field. Add stable editable fields at runtime without changing any
@@ -158,7 +127,6 @@
     }
     // Reapply the fixed worksheet title after loading any older saved title.
     applyWorksheetTitle();
-    ensurePageLogos();
     suppressLocalSave=false;
     setStatus('متصل ✓');
   }
@@ -207,7 +175,6 @@
         if(document.activeElement===el) return; // don't interrupt local typing
         suppressLocalSave=true; el.innerHTML=sanitize(row.value); suppressLocalSave=false;
         if(el.classList.contains('cover-title')) applyWorksheetTitle();
-        ensurePageLogos();
       }).subscribe(status=>{
         if(status==='SUBSCRIBED') setStatus('متصل ✓');
         if(status==='CHANNEL_ERROR') setStatus('خطأ في المزامنة');
