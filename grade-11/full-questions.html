@@ -1,0 +1,16 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ثاني ثانوي - التدريبات الشاملة - الأسئلة</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#ececec}iframe{display:block;width:100%;height:100%;border:0}</style></head><body><iframe id="sheet" title="ثاني ثانوي - التدريبات الشاملة - الأسئلة"></iframe><script>
+(()=>{
+  const frame=document.getElementById('sheet');
+  frame.src='questions.html'+location.hash;
+  const addScript=(d,src)=>new Promise((resolve,reject)=>{const s=d.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;d.body.appendChild(s)});
+  frame.addEventListener('load',async()=>{
+    const d=frame.contentDocument;if(!d||d.body.dataset.collabInjected)return;
+    d.body.dataset.collabInjected='1';d.body.dataset.docId='g11-full-questions';
+    const link=d.createElement('link');link.rel='stylesheet';link.href='../assets/collab.css';d.head.appendChild(link);
+    let q=0,other=0;
+    d.querySelectorAll('.qline').forEach(el=>{if(el.querySelector(':scope > [data-field]'))return;const n=el.querySelector(':scope > .qnum');const span=d.createElement('span');span.className='editable-content';span.dataset.field=`full-q-prompt-${++q}`;let node=n?n.nextSibling:el.firstChild;while(node){const next=node.nextSibling;span.appendChild(node);node=next}el.appendChild(span)});
+    d.querySelectorAll('.cover-title,.cover-sub,.info td,.lesson-title,.cover-note,.prompt').forEach(el=>{if(!el.hasAttribute('data-field')&&!el.closest('[data-field]'))el.dataset.field=`full-q-extra-${++other}`});
+    try{await addScript(d,'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');await addScript(d,'https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js');await addScript(d,'../assets/config.js');await addScript(d,'../assets/collab.js')}catch(e){console.error(e)}
+  });
+})();
+</script></body></html>
