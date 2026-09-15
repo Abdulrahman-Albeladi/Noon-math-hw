@@ -18,6 +18,30 @@
   const isGrade9 = /^g9(?:-|$)/.test(docId) || /\/grade-9\//.test(location.pathname);
   if(isGrade9) document.body.classList.add('g9-arabic-math');
 
+  // Keep worksheet cover titles consistent across all subset question pages.
+  const worksheetTitles = {
+    'g9-set1-questions':'ورقة عمل ١: المعادلات الأساسية وحل المعادلات ذات الخطوة الواحدة',
+    'g9-set2-questions':'ورقة عمل ٢: حل المعادلات المتعددة الخطوات والمتغير في طرفي المعادلة',
+    'g9-set3-questions':'ورقة عمل ٣: معادلات القيمة المطلقة والعلاقات',
+    'g10-set1-questions':'ورقة عمل ١: التبرير الاستقرائي والتخمين',
+    'g10-set2-questions':'ورقة عمل ٢: المنطق والعبارات الشرطية',
+    'g10-set3-questions':'ورقة عمل ٣: التبرير الاستنتاجي',
+    'g11-set1-questions':'ورقة عمل ١: خصائص الأعداد الحقيقية والعلاقات والدوال',
+    'g11-set2-questions':'ورقة عمل ٢: الدوال الخاصة',
+    'g11-set3-questions':'ورقة عمل ٣: تمثيل المتباينات الخطية ومتباينات القيمة المطلقة بيانيًا',
+    'g12-set1-questions':'ورقة عمل ١: الدوال وتمثيل المجموعات والمجال والدوال متعددة التعريف',
+    'g12-set2-questions':'ورقة عمل ٢: تدريبات على الدوال وتحليل التمثيلات البيانية',
+    'g12-set3-questions':'ورقة عمل ٣: المقاطع وأصفار الدوال والدوال الزوجية والفردية وتحليل الدوال'
+  };
+  function applyWorksheetTitle(){
+    const title=worksheetTitles[docId];
+    if(!title) return;
+    const el=document.querySelector('.cover-title');
+    if(el) el.textContent=title;
+    document.title=title;
+  }
+  applyWorksheetTitle();
+
   // Some files were created before every answer choice had an explicit
   // data-field. Add stable editable fields at runtime without changing any
   // worksheet content, styling, numbering, or layout.
@@ -101,6 +125,8 @@
       const el=document.querySelector(`[data-field="${CSS.escape(row.field_id)}"]`);
       if(el) el.innerHTML=sanitize(row.value);
     }
+    // Reapply the fixed worksheet title after loading any older saved title.
+    applyWorksheetTitle();
     suppressLocalSave=false;
     setStatus('متصل ✓');
   }
@@ -148,6 +174,7 @@
         const el=document.querySelector(`[data-field="${CSS.escape(row.field_id)}"]`); if(!el) return;
         if(document.activeElement===el) return; // don't interrupt local typing
         suppressLocalSave=true; el.innerHTML=sanitize(row.value); suppressLocalSave=false;
+        if(el.classList.contains('cover-title')) applyWorksheetTitle();
       }).subscribe(status=>{
         if(status==='SUBSCRIBED') setStatus('متصل ✓');
         if(status==='CHANNEL_ERROR') setStatus('خطأ في المزامنة');
