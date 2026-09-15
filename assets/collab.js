@@ -43,6 +43,22 @@
   }
   applyWorksheetTitle();
 
+  // Brand every printable worksheet page with the Noon logo.
+  function ensurePageLogos(){
+    document.querySelectorAll('.page').forEach(page=>{
+      if(page.querySelector(':scope > .worksheet-brand-logo')) return;
+      const img=document.createElement('img');
+      img.className='worksheet-brand-logo';
+      img.src='../assets/noon-logo.svg';
+      img.alt='';
+      img.setAttribute('aria-hidden','true');
+      img.draggable=false;
+      img.style.cssText='position:absolute;left:6mm;top:5mm;width:25mm;height:auto;z-index:20;pointer-events:none;user-select:none;';
+      page.appendChild(img);
+    });
+  }
+  ensurePageLogos();
+
   // Some files were created before every answer choice had an explicit
   // data-field. Add stable editable fields at runtime without changing any
   // worksheet content, styling, numbering, or layout.
@@ -128,6 +144,7 @@
     }
     // Reapply the fixed worksheet title after loading any older saved title.
     applyWorksheetTitle();
+    ensurePageLogos();
     suppressLocalSave=false;
     setStatus('متصل ✓');
   }
@@ -176,6 +193,7 @@
         if(document.activeElement===el) return; // don't interrupt local typing
         suppressLocalSave=true; el.innerHTML=sanitize(row.value); suppressLocalSave=false;
         if(el.classList.contains('cover-title')) applyWorksheetTitle();
+        ensurePageLogos();
       }).subscribe(status=>{
         if(status==='SUBSCRIBED') setStatus('متصل ✓');
         if(status==='CHANNEL_ERROR') setStatus('خطأ في المزامنة');
