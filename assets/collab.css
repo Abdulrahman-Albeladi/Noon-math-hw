@@ -8,6 +8,10 @@ body.edit-mode [data-field]:focus{outline:2px solid #26b78a;outline-offset:2px;b
 body.view-mode [data-field]{cursor:default}
 .collab-config-error{position:fixed;inset:18px 18px auto 18px;z-index:999999;background:#7a1515;color:#fff;padding:13px 16px;border-radius:9px;font:13px/1.6 Tahoma,Arial,sans-serif;direction:rtl}
 
+/* Optional-question marker. It remains visible in print/PDF output. */
+.optional-mark{display:inline-block;margin-inline-start:5px;padding:1px 6px;border:1px solid #26b78a;border-radius:999px;background:#eefaf6;color:#147a5e;font:700 .78em/1.45 Tahoma,Arial,sans-serif;vertical-align:middle;white-space:nowrap}
+.ab-table td.n .optional-mark{display:block;width:max-content;max-width:100%;margin:2px auto 0;padding:0 4px;font-size:7.5pt;line-height:1.35}
+
 /* Grade 9 uses Arabic RTL mathematical reading order.
    The logical HTML remains unchanged; these rules place the first mathematical
    term on the right, keep division/equalities in RTL reading order, and place
