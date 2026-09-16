@@ -184,11 +184,12 @@
   loadSaved().then(subscribe);
 })();
 
-// Approved optional-question flags. This block is deliberately independent
-// of Supabase so the labels still appear if collaborative editing is offline.
+// Approved optional-question flags. They are shown only in question files.
+// This block is deliberately independent of Supabase so the labels still
+// appear if collaborative editing is offline.
 (() => {
   const docId=document.body?.dataset?.docId || '';
-  if(!docId) return;
+  if(!docId || !docId.endsWith('-questions')) return;
 
   const optionalByWorksheet={
     'g9-full':[2,4,10,14,19,24,26,32,34],
@@ -212,7 +213,7 @@
     'g12-set3':[5,8,11,12]
   };
 
-  const baseId=docId.replace(/-(questions|answers)$/,'');
+  const baseId=docId.replace(/-questions$/,'');
   const optional=new Set(optionalByWorksheet[baseId] || []);
   if(!optional.size) return;
 
@@ -233,26 +234,13 @@
     return el;
   }
 
-  if(docId.endsWith('-questions')){
-    document.querySelectorAll('.qbox .qnum').forEach(qnum=>{
-      const n=questionNumber(qnum.textContent);
-      if(!optional.has(n)) return;
-      const qbox=qnum.closest('.qbox');
-      if(qbox) qbox.dataset.optionalQuestion='true';
-      const qline=qnum.closest('.qline');
-      if(!qline || qline.querySelector(':scope > .optional-mark')) return;
-      qnum.insertAdjacentElement('afterend',marker());
-    });
-  }
-
-  if(docId.endsWith('-answers')){
-    document.querySelectorAll('.ab-table tbody tr').forEach(row=>{
-      const numberCell=row.querySelector('td.n');
-      if(!numberCell) return;
-      const n=questionNumber(numberCell.textContent);
-      if(!optional.has(n)) return;
-      row.dataset.optionalQuestion='true';
-      if(!numberCell.querySelector('.optional-mark')) numberCell.appendChild(marker());
-    });
-  }
+  document.querySelectorAll('.qbox .qnum').forEach(qnum=>{
+    const n=questionNumber(qnum.textContent);
+    if(!optional.has(n)) return;
+    const qbox=qnum.closest('.qbox');
+    if(qbox) qbox.dataset.optionalQuestion='true';
+    const qline=qnum.closest('.qline');
+    if(!qline || qline.querySelector(':scope > .optional-mark')) return;
+    qnum.insertAdjacentElement('afterend',marker());
+  });
 })();
