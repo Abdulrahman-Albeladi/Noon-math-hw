@@ -93,7 +93,10 @@
           for(const node of nodes) target.appendChild(node);
           choice.appendChild(target);
         }
-        target.dataset.field=`auto-q${qIndex+1}-option-${optionIndex+1}`;
+        const isGrade9Q2FixedChoice=(docId==='g9-full-questions' || docId==='g9-set1-questions') && qIndex===1 && (optionIndex===0 || optionIndex===3);
+        target.dataset.field=isGrade9Q2FixedChoice
+          ? `auto-q2-option-${optionIndex+1}-rtl-fixed`
+          : `auto-q${qIndex+1}-option-${optionIndex+1}`;
       });
     });
   }
