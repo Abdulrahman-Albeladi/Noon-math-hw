@@ -44,4 +44,8 @@ body.g9-arabic-math .qline,
 body.g9-arabic-math .ab-table td{direction:rtl!important;unicode-bidi:plaintext;text-align:right}
 body.g9-arabic-math .ab-table .math{direction:rtl!important;unicode-bidi:isolate}
 
+/* Only Grade 9 question 2's two negative answer values use this class.
+   Force literal visual order so the minus sign stays on the right. */
+body.g9-arabic-math .g9-q2-negative{direction:ltr!important;unicode-bidi:bidi-override!important;display:inline-block}
+
 @media print{.collab-toolbar,.collab-config-error{display:none!important}[data-field]{outline:none!important;background:transparent!important}}
