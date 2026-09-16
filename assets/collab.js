@@ -42,6 +42,31 @@
   }
   applyWorksheetTitle();
 
+  // Grade 9 question 2 only: place the negative sign on the right side of
+  // the Arabic value in options (أ) and (د), in both the full set and set 1.
+  function fixGrade9Question2NegativeSigns(){
+    if(docId!=='g9-full-questions' && docId!=='g9-set1-questions') return;
+    const qbox=document.querySelectorAll('.qbox')[1];
+    if(!qbox) return;
+    const options=qbox.querySelectorAll('.opt');
+    [[0,'٦٨'],[3,'٧٤']].forEach(([optionIndex,digits])=>{
+      const seq=options[optionIndex]?.querySelector('.mathseq');
+      if(!seq) return;
+      const children=[...seq.children];
+      const eqIndex=children.findIndex(el=>el.textContent.trim()==='=');
+      if(eqIndex<0) return;
+      const tail=children.slice(eqIndex+1);
+      const tailText=tail.map(el=>el.textContent).join('');
+      if(!tailText.includes(digits) || !tailText.includes('−')) return;
+      tail.forEach(el=>el.remove());
+      const value=document.createElement('span');
+      value.className='g9-q2-negative';
+      value.dir='ltr';
+      value.textContent=`${digits}−`;
+      seq.appendChild(value);
+    });
+  }
+
   // Some files were created before every answer choice had an explicit
   // data-field. Add stable editable fields at runtime without changing any
   // worksheet content, styling, numbering, or layout.
@@ -89,6 +114,7 @@
 
   ensureEditableChoices();
   ensureEditableEquations();
+  fixGrade9Question2NegativeSigns();
 
   const fields = [...document.querySelectorAll('[data-field]')];
   const timers = new Map();
@@ -127,6 +153,7 @@
     }
     // Reapply the fixed worksheet title after loading any older saved title.
     applyWorksheetTitle();
+    fixGrade9Question2NegativeSigns();
     suppressLocalSave=false;
     setStatus('متصل ✓');
   }
@@ -175,6 +202,7 @@
         if(document.activeElement===el) return; // don't interrupt local typing
         suppressLocalSave=true; el.innerHTML=sanitize(row.value); suppressLocalSave=false;
         if(el.classList.contains('cover-title')) applyWorksheetTitle();
+        fixGrade9Question2NegativeSigns();
       }).subscribe(status=>{
         if(status==='SUBSCRIBED') setStatus('متصل ✓');
         if(status==='CHANNEL_ERROR') setStatus('خطأ في المزامنة');
