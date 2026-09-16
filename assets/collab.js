@@ -183,3 +183,76 @@
 
   loadSaved().then(subscribe);
 })();
+
+// Approved optional-question flags. This block is deliberately independent
+// of Supabase so the labels still appear if collaborative editing is offline.
+(() => {
+  const docId=document.body?.dataset?.docId || '';
+  if(!docId) return;
+
+  const optionalByWorksheet={
+    'g9-full':[2,4,10,14,19,24,26,32,34],
+    'g9-set1':[2,4,10,14],
+    'g9-set2':[4,9,11],
+    'g9-set3':[5,7],
+
+    'g10-full':[4,5,11,15,17,21,25,29,31],
+    'g10-set1':[4,5],
+    'g10-set2':[3,7,9,13],
+    'g10-set3':[2,6,8],
+
+    'g11-full':[3,8,9,13,15,22,25,26,30,35,38],
+    'g11-set1':[3,8,9,13,15],
+    'g11-set2':[4,7,8],
+    'g11-set3':[2,7,10],
+
+    'g12-full':[2,7,8,13,14,17,20,23,30,33,36,37],
+    'g12-set1':[2,7,8,13,14],
+    'g12-set2':[2,5,8],
+    'g12-set3':[5,8,11,12]
+  };
+
+  const baseId=docId.replace(/-(questions|answers)$/,'');
+  const optional=new Set(optionalByWorksheet[baseId] || []);
+  if(!optional.size) return;
+
+  const arabic='٠١٢٣٤٥٦٧٨٩';
+  const eastern='۰۱۲۳۴۵۶۷۸۹';
+  function questionNumber(text){
+    const normalized=(text || '')
+      .replace(/[٠-٩]/g,d=>String(arabic.indexOf(d)))
+      .replace(/[۰-۹]/g,d=>String(eastern.indexOf(d)));
+    const match=normalized.match(/\d+/);
+    return match ? Number(match[0]) : NaN;
+  }
+  function marker(){
+    const el=document.createElement('span');
+    el.className='optional-mark';
+    el.textContent='(اختياري)';
+    el.setAttribute('aria-label','سؤال اختياري');
+    return el;
+  }
+
+  if(docId.endsWith('-questions')){
+    document.querySelectorAll('.qbox .qnum').forEach(qnum=>{
+      const n=questionNumber(qnum.textContent);
+      if(!optional.has(n)) return;
+      const qbox=qnum.closest('.qbox');
+      if(qbox) qbox.dataset.optionalQuestion='true';
+      const qline=qnum.closest('.qline');
+      if(!qline || qline.querySelector(':scope > .optional-mark')) return;
+      qnum.insertAdjacentElement('afterend',marker());
+    });
+  }
+
+  if(docId.endsWith('-answers')){
+    document.querySelectorAll('.ab-table tbody tr').forEach(row=>{
+      const numberCell=row.querySelector('td.n');
+      if(!numberCell) return;
+      const n=questionNumber(numberCell.textContent);
+      if(!optional.has(n)) return;
+      row.dataset.optionalQuestion='true';
+      if(!numberCell.querySelector('.optional-mark')) numberCell.appendChild(marker());
+    });
+  }
+})();
