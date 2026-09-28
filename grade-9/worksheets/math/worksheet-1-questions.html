@@ -1,0 +1,145 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><title>ورقة عمل ١ - الصف الثالث المتوسط</title><style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#ececec;color:#161616;font-family:Tahoma,Arial,sans-serif}
+@page{size:A4;margin:0}
+.page{width:210mm;min-height:297mm;background:#fff;margin:0 auto 8mm;padding:10mm 11mm 10mm;page-break-after:always;direction:rtl;position:relative}
+.page:last-of-type{page-break-after:auto}
+.header{display:flex;justify-content:space-between;gap:8mm;align-items:flex-start;margin-bottom:3mm}
+.title{font-size:22px;font-weight:800}
+.chapter{font-size:12px;font-weight:700;color:#178b70;margin-top:1.5mm}
+.meta{font-size:11px;color:#4f5c59;line-height:1.6;text-align:left}
+.rule{height:2px;background:#26b78a;margin:2mm 0}
+.fields{display:flex;gap:6mm;border-bottom:1px solid #d8e7e2;padding-bottom:2mm;font-size:10.5px;color:#333}
+.fields span:first-child{flex:2}.fields span:not(:first-child){flex:1}
+.questions{margin-top:4mm}
+.q{border:1px solid #b8dfd7;border-radius:7px;background:#fbfffe;padding:3.2mm 3.8mm;margin:0 0 3mm;break-inside:avoid;page-break-inside:avoid}
+.qh{display:flex;align-items:flex-start;gap:2mm}
+.num{font-weight:800;min-width:8mm}
+.stem{font-size:12px;font-weight:700;line-height:1.6;flex:1}
+.formula{text-align:center;font-size:15px;margin:2mm 0;direction:rtl;unicode-bidi:isolate}
+.math{direction:ltr;unicode-bidi:isolate;display:inline-block;font-family:"DejaVu Sans",Arial,sans-serif}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1;margin:0 2px}
+.frac>span:first-child{border-bottom:1px solid #222;padding:0 2px}
+.options{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"b a" "d c";gap:1.5mm 7mm;direction:ltr;margin-top:2mm}
+.opt{direction:rtl;text-align:right;display:flex;gap:2mm;align-items:center;min-height:8mm;font-size:10.8px;line-height:1.45}
+.opt:nth-child(1){grid-area:a}.opt:nth-child(2){grid-area:b}.opt:nth-child(3){grid-area:c}.opt:nth-child(4){grid-area:d}
+.lab{font-weight:800;min-width:5mm}
+.ws-reference{font-size:8.5px;color:#566b66;border-top:1px solid #e1efec;margin-top:2mm;padding-top:1mm;line-height:1.45}
+.ws-reference strong{color:#178b70}.inspired{font-weight:800;color:#9a651b}
+.diagram{display:block;max-width:95%;height:auto;max-height:36mm;margin:2mm auto}.diagram.wide{max-height:30mm}
+.steps{border:1px solid #d6e8e3;background:#fff;padding:2mm 4mm;margin:2mm 0;font-size:10.5px;line-height:1.7}
+.answer-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:9.5px}
+.answer-table th{background:#27b295;color:white;border:1px solid #1d9d83;padding:2mm;font-weight:800}
+.answer-table td{border:1px solid #b8dcd5;padding:2mm 2.5mm;vertical-align:top;line-height:1.5}
+.answer-table tr:nth-child(even) td{background:#f5fbf9}
+.answer-table .n{width:7%;text-align:center;font-weight:800}
+.answer-table .a{width:18%;font-weight:800}
+.answer-table .e{width:75%}
+.footer{margin-top:4mm;border-top:1px solid #cfe9e4;padding-top:1.5mm;text-align:center;font-size:8px;color:#777}
+.print{position:fixed;left:14px;bottom:14px;border:0;border-radius:8px;padding:8px 12px;background:#111;color:#fff;font-weight:700;cursor:pointer}
+@media print{html,body{background:#fff}.page{margin:0}.print{display:none}}
+</style><style>
+/* Third-version formatting normalization */
+html,body,.page,.q,.qhead,.qtext,.stem,.options,.opt,.answer-table,.ans-table,.ref,.skill,.ws-reference,.meta,.student,.fields,.header,.footer,table,th,td,button {
+  font-family: Tahoma, Arial, sans-serif !important;
+}
+.math,.formula,.eq-inline,.ar-math,.system,.frac,.frac .top,.frac .bottom {
+  font-family: inherit !important;
+  font-size: 1em !important;
+}
+.stem,.formula { font-size:12px !important; }
+.qhead .math,.qtext .math,.stem .math,.opt .math,.a .math,.e .math,.ans .math { font-size:inherit !important; }
+.frac { display:inline-flex !important; flex-direction:column !important; vertical-align:middle !important; text-align:center !important; line-height:1 !important; margin:0 2px !important; direction:ltr !important; unicode-bidi:isolate !important; }
+.frac > span:first-child,.frac .top { border-bottom:1px solid currentColor !important; padding:0 2px 1px !important; }
+.frac > span:last-child,.frac .bottom { padding:1px 2px 0 !important; }
+svg text { font-family: Tahoma, Arial, sans-serif !important; }
+</style></head><body><section class="page"><div class="header"><div><div class="title">ورقة عمل ١</div><div class="chapter">الفصل الأول · المعادلات الخطية</div></div><div class="meta">الصف الثالث المتوسط<br>الفصل الدراسي الأول · 1448هـ</div></div><div class="rule"></div><div class="fields"><span>الاسم: ........................................</span><span>الفصل: ............</span><span>التاريخ: ................</span></div><div class="questions">
+<article class="q" data-q="١">
+  <div class="qh"><div class="num">١.</div><div class="stem">إذا كانت ع تنتمي إلى مجموعة التعويض {١٠، ١٢، ١٤، ١٦، ١٨}، فما مجموعة حل المعادلة الآتية؟</div></div>
+  <div class="formula">١٠ + ع = ٢٢</div>
+  <div class="options">
+    <div class="opt"><span class="lab">أ</span><span>{١٠}</span></div>
+    <div class="opt"><span class="lab">ب</span><span>{١٢}</span></div>
+    <div class="opt"><span class="lab">ج</span><span>{١٤}</span></div>
+    <div class="opt"><span class="lab">د</span><span>{١٦}</span></div>
+  </div>
+  <div class="ws-reference"><strong>الدرس ١-١: المعادلات</strong> · المهارة: إيجاد مجموعة الحل باستعمال مجموعة التعويض<br>المرجع: ص ١٥ · تدرب وحل المسائل · السؤال/التمرين ١١</div>
+</article>
+
+<article class="q" data-q="٢"><div class="qh"><div class="num">٢.</div><div class="stem">أيُّ المسائل اللفظية الآتية تمثلها المعادلة: <span class="math" dir="ltr">هـ − ١٠ = ٢٠</span>؟</div></div><div class="options"><div class="opt"><span class="lab">أ</span><span>أضاف جاسم هـ أكواب إلى إناء به ٢٠ كوبًا.</span></div><div class="opt"><span class="lab">ب</span><span>أضاف جاسم ١٠ أكواب إلى إناء ليصبح فيه ٢٠ كوبًا.</span></div><div class="opt"><span class="lab">ج</span><span>أفرغ جاسم ١٠ أكواب من إناء وبقي فيه ٢٠ كوبًا. فكم كان فيه أصلًا؟</span></div><div class="opt"><span class="lab">د</span><span>أفرغ جاسم ١٠ أكواب من إناء كان فيه ٢٠ كوبًا. فكم بقي؟</span></div></div><div class="ws-reference"><strong>الدرس ١-٢: حل المعادلات ذات الخطوة الواحدة</strong> · المهارة: مطابقة معادلة بمسألة لفظية<br>المرجع: <span class="inspired">مستوحى من</span> ص ٢٥ · السؤال/التمرين ٤٦</div></article>
+
+<article class="q" data-q="٣"><div class="qh"><div class="num">٣.</div><div class="stem">أوجد العدد الذي ناتج جمع رُبعه مع العدد ٢ يساوي نصفه.</div></div><div class="options"><div class="opt"><span class="lab">أ</span><span>٤</span></div><div class="opt"><span class="lab">ب</span><span>٨</span></div><div class="opt"><span class="lab">ج</span><span>١٢</span></div><div class="opt"><span class="lab">د</span><span>١٦</span></div></div><div class="ws-reference"><strong>الدرس ١-٤: حل المعادلات التي تحتوي متغيرًا في طرفيها</strong> · المهارة: نمذجة مسألة لفظية بمعادلة كسرية وحلها<br>المرجع: <span class="inspired">مستوحى من</span> ص ٤٦ · السؤال/التمرين ٤</div></article>
+
+<article class="q" data-q="٤"><div class="qh"><div class="num">٤.</div><div class="stem">حل المعادلة الآتية:</div></div><div class="formula"><span class="frac"><span>س</span><span>٢</span></span> = ٣</div><div class="options"><div class="opt"><span class="lab">أ</span><span>٦</span></div><div class="opt"><span class="lab">ب</span><span>٣</span></div><div class="opt"><span class="lab">ج</span><span>٢</span></div><div class="opt"><span class="lab">د</span><span>١</span></div></div><div class="ws-reference"><strong>الدرس ١-٢: حل المعادلات ذات الخطوة الواحدة</strong> · المهارة: حل معادلة تتضمن كسورًا<br>المرجع: <span class="inspired">مستوحى من</span> ص ٤٦ · السؤال/التمرين ٥</div></article>
+
+<article class="q" data-q="٥">
+  <div class="qh"><div class="num">٥.</div><div class="stem">حل المعادلة الآتية:</div></div>
+  <div class="formula">٣ت + ٧ = −٨</div>
+  <div class="options">
+    <div class="opt"><span class="lab">أ</span><span>−٥</span></div>
+    <div class="opt"><span class="lab">ب</span><span>٥</span></div>
+    <div class="opt"><span class="lab">ج</span><span>−١</span></div>
+    <div class="opt"><span class="lab">د</span><span>١</span></div>
+  </div>
+  <div class="ws-reference"><strong>الدرس ١-٣: حل المعادلات المتعددة الخطوات</strong> · المهارة: حل معادلة متعددة الخطوات باستعمال العمليات العكسية<br>المرجع: ص ٣٠ · تدرب وحل المسائل · السؤال/التمرين ٧</div>
+</article>
+</div><div class="footer">الصفحة ١ من ٣</div></section><section class="page"><div class="header"><div><div class="title">ورقة عمل ١</div><div class="chapter">الفصل الأول · المعادلات الخطية</div></div><div class="meta">الصف الثالث المتوسط<br>الفصل الدراسي الأول · 1448هـ</div></div><div class="rule"></div><div class="fields"><span>الاسم: ........................................</span><span>الفصل: ............</span><span>التاريخ: ................</span></div><div class="questions">
+<article class="q" data-q="٦">
+  <div class="qh"><div class="num">٦.</div><div class="stem">حل المعادلة الآتية:</div></div>
+  <div class="formula">٨ = ١٦ + ٨ن</div>
+  <div class="options">
+    <div class="opt"><span class="lab">أ</span><span>−١</span></div>
+    <div class="opt"><span class="lab">ب</span><span>١</span></div>
+    <div class="opt"><span class="lab">ج</span><span>−٣</span></div>
+    <div class="opt"><span class="lab">د</span><span>٣</span></div>
+  </div>
+  <div class="ws-reference"><strong>الدرس ١-٣: حل المعادلات المتعددة الخطوات</strong> · المهارة: حل معادلة متعددة الخطوات والتحقق من الحل<br>المرجع: ص ٣٠ · تدرب وحل المسائل · السؤال/التمرين ٨</div>
+</article>
+
+<article class="q" data-q="٧"><div class="qh"><div class="num">٧.</div><div class="stem">ما قيمة س التي تحقق المعادلة الآتية؟</div></div><div class="formula"><span class="frac"><span>١</span><span>٢</span></span> س + ٤ = <span class="frac"><span>١</span><span>٤</span></span> س − ٢</div><div class="options"><div class="opt"><span class="lab">أ</span><span>−١٢</span></div><div class="opt"><span class="lab">ب</span><span>−١٦</span></div><div class="opt"><span class="lab">ج</span><span>−٢٠</span></div><div class="opt"><span class="lab">د</span><span>−٢٤</span></div></div><div class="ws-reference"><strong>الدرس ١-٤: حل المعادلات التي تحتوي متغيرًا في طرفيها</strong> · المهارة: حل معادلة كسرية بمتغير في الطرفين<br>المرجع: <span class="inspired">مستوحى من</span> ص ٣٧ · السؤال/التمرين ٣٠</div></article>
+
+<article class="q" data-q="٨"><div class="qh"><div class="num">٨.</div><div class="stem">أيُّ المعادلات الآتية تمثل متطابقة؟</div></div><div class="options"><div class="opt"><span class="lab">أ</span><span>ل + ٣ = ٣ل + ١</span></div><div class="opt"><span class="lab">ب</span><span>٢ل + ٣ = ٢ل + ١</span></div><div class="opt"><span class="lab">ج</span><span>٤ل − ١ = ٤ل + ١</span></div><div class="opt"><span class="lab">د</span><span>٥ل + ٦ = ٥ل + ٦</span></div></div><div class="ws-reference"><strong>الدرس ١-٤: حل المعادلات التي تحتوي متغيرًا في طرفيها</strong> · المهارة: تمييز المتطابقة من المعادلات الأخرى<br>المرجع: ص ٤٥ · السؤال/التمرين ١٧</div></article>
+
+<article class="q" data-q="٩">
+  <div class="qh"><div class="num">٩.</div><div class="stem">هندسة: ثماني منتظم محيطه ١٢٨ سم، أوجد طول ضلعه.</div></div>
+  <div class="options">
+    <div class="opt"><span class="lab">أ</span><span>١٢ سم</span></div>
+    <div class="opt"><span class="lab">ب</span><span>١٤ سم</span></div>
+    <div class="opt"><span class="lab">ج</span><span>١٦ سم</span></div>
+    <div class="opt"><span class="lab">د</span><span>١٨ سم</span></div>
+  </div>
+  <div class="ws-reference"><strong>الدرس ١-١: المعادلات</strong> · المهارة: كتابة معادلة من موقف هندسي وإيجاد الحل<br>المرجع: ص ١٥ · تدرب وحل المسائل · السؤال/التمرين ٢٨</div>
+</article>
+
+<article class="q" data-q="١٠">
+  <div class="qh"><div class="num">١٠.</div><div class="stem">حل المعادلة الآتية:</div></div>
+  <div class="formula">٧ج + ١٢ = ٤ج + ٧٨</div>
+  <div class="options">
+    <div class="opt"><span class="lab">أ</span><span>١٨</span></div>
+    <div class="opt"><span class="lab">ب</span><span>٢٠</span></div>
+    <div class="opt"><span class="lab">ج</span><span>٢٢</span></div>
+    <div class="opt"><span class="lab">د</span><span>٢٤</span></div>
+  </div>
+  <div class="ws-reference"><strong>الدرس ١-٤: حل المعادلات التي تحتوي متغيرًا في طرفيها</strong> · المهارة: حل معادلة يظهر فيها المتغير في كلا الطرفين<br>المرجع: ص ٣٦ · تدرب وحل المسائل · السؤال/التمرين ٨</div>
+</article>
+</div><div class="footer">الصفحة ٢ من ٣</div></section><section class="page"><div class="header"><div><div class="title">ورقة عمل ١</div><div class="chapter">الفصل الأول · المعادلات الخطية</div></div><div class="meta">الصف الثالث المتوسط<br>الفصل الدراسي الأول · 1448هـ</div></div><div class="rule"></div><div class="fields"><span>الاسم: ........................................</span><span>الفصل: ............</span><span>التاريخ: ................</span></div><div class="questions">
+<article class="q" data-q="١١"><div class="qh"><div class="num">١١.</div><div class="stem">أوجد قيمة س التي تجعل مساحتي المستطيلين متساويتين.</div></div><svg class="diagram wide" viewBox="0 0 620 180" aria-label="مستطيلان أبعادهما موضحة خارج الشكل"><rect x="320" y="25" width="250" height="95" fill="#e9e9e9" stroke="#666" stroke-width="2"/><text x="445" y="151" font-size="20" text-anchor="middle">١٢ سم</text><text x="285" y="80" font-size="20" text-anchor="end">(س−٢) سم</text><rect x="60" y="20" width="140" height="120" fill="#e9e9e9" stroke="#666" stroke-width="2"/><text x="130" y="169" font-size="20" text-anchor="middle">٨ سم</text><text x="235" y="86" font-size="20">س سم</text></svg><div class="options"><div class="opt"><span class="lab">أ</span><span>٤</span></div><div class="opt"><span class="lab">ب</span><span>٥</span></div><div class="opt"><span class="lab">ج</span><span>٦</span></div><div class="opt"><span class="lab">د</span><span>٨</span></div></div><div class="ws-reference"><strong>الدرس ١-٤: حل المعادلات التي تحتوي متغيرًا في طرفيها</strong> · المهارة: نمذجة مساواة مساحتين وحل معادلة بمتغير في الطرفين<br>المرجع: <span class="inspired">مستوحى من</span> ص ٤٦ · السؤال/التمرين ١</div></article>
+
+<article class="q" data-q="١٢"><div class="qh"><div class="num">١٢.</div><div class="stem">ما حل معادلة القيمة المطلقة الآتية؟</div></div><div class="formula">|٢هـ − ٢| = ٦</div><div class="options"><div class="opt"><span class="lab">أ</span><span>٤</span></div><div class="opt"><span class="lab">ب</span><span>{−٢، ٤}</span></div><div class="opt"><span class="lab">ج</span><span>{−٤، ٢}</span></div><div class="opt"><span class="lab">د</span><span>{−٢، ٢}</span></div></div><div class="ws-reference"><strong>الدرس ١-٥: حل المعادلات التي تتضمن القيمة المطلقة</strong> · المهارة: حل معادلة قيمة مطلقة لها حلان<br>المرجع: <span class="inspired">مستوحى من</span> ص ٤٥ · السؤال/التمرين ١٥</div></article>
+
+<article class="q" data-q="١٣"><div class="qh"><div class="num">١٣.</div><div class="stem">ما مجموعة حل المعادلة الآتية؟</div></div><div class="formula">|س − ١| = −١</div><div class="options"><div class="opt"><span class="lab">أ</span><span>{٠، ١}</span></div><div class="opt"><span class="lab">ب</span><span>{٠}</span></div><div class="opt"><span class="lab">ج</span><span>∅</span></div><div class="opt"><span class="lab">د</span><span>{−١، ١}</span></div></div><div class="ws-reference"><strong>الدرس ١-٥: حل المعادلات التي تتضمن القيمة المطلقة</strong> · المهارة: التعرّف إلى استحالة مساواة قيمة مطلقة بعدد سالب<br>المرجع: ص ٤٦ · السؤال/التمرين ٨</div></article>
+
+<article class="q" data-q="١٤"><div class="qh"><div class="num">١٤.</div><div class="stem">القيمة العددية للعبارة <span class="math" dir="ltr">|س<sup>٢</sup> − ١|</span> إذا كانت <span class="math" dir="ltr">س = ٢</span> هي:</div></div><div class="options"><div class="opt"><span class="lab">أ</span><span>٣</span></div><div class="opt"><span class="lab">ب</span><span>١</span></div><div class="opt"><span class="lab">ج</span><span>−٣</span></div><div class="opt"><span class="lab">د</span><span>−١</span></div></div><div class="ws-reference"><strong>الدرس ١-٥: حل المعادلات التي تتضمن القيمة المطلقة</strong> · المهارة: حساب قيمة تعبير يتضمن قيمة مطلقة<br>المرجع: <span class="inspired">مستوحى من</span> ص ٤٦ · السؤال/التمرين ٧</div></article>
+
+<article class="q" data-q="١٥">
+  <div class="qh"><div class="num">١٥.</div><div class="stem">حل المعادلة الآتية:</div></div>
+  <div class="formula">أ = ٣٣ − ٩(٢)</div>
+  <div class="options">
+    <div class="opt"><span class="lab">أ</span><span>١٥</span></div>
+    <div class="opt"><span class="lab">ب</span><span>٢٤</span></div>
+    <div class="opt"><span class="lab">ج</span><span>٤٢</span></div>
+    <div class="opt"><span class="lab">د</span><span>٥١</span></div>
+  </div>
+  <div class="ws-reference"><strong>الدرس ١-١: المعادلات</strong> · المهارة: حل معادلة باستعمال ترتيب العمليات<br>المرجع: ص ١٥ · تدرب وحل المسائل · السؤال/التمرين ١٧</div>
+</article>
+</div><div class="footer">الصفحة ٣ من ٣</div></section><button class="print" onclick="window.print()">PDF / طباعة</button></body></html>
