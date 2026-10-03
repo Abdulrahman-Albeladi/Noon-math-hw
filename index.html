@@ -41,10 +41,19 @@ h1{margin:0 0 8px;font-size:30px}
 .branch-title:before{content:"";position:absolute;right:-16px;top:50%;width:15px;height:2px;background:#d4ebe4}
 .branch-title:hover{border-color:#8fd6c0;background:#f9fdfc}
 .leaves{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 13px}
-.leaf{position:relative;display:flex;align-items:center;gap:8px;text-decoration:none;color:#15201c;background:#fbfdfc;border:1px solid #e0eee9;border-radius:9px;padding:10px 11px;font-size:13.5px;font-weight:700;min-height:43px;transition:.15s}
-.leaf:before{content:"";position:absolute;right:-16px;top:50%;width:15px;height:2px;background:#d4ebe4}
-.leaf:hover{background:#eff9f6;border-color:#8fd6c0;transform:translateY(-1px)}
+.leaf-card{position:relative;background:#fbfdfc;border:1px solid #e0eee9;border-radius:9px;overflow:visible;transition:.15s;min-width:0}
+.leaf-card:before{content:"";position:absolute;right:-16px;top:22px;width:15px;height:2px;background:#d4ebe4}
+.leaf-card:hover{border-color:#8fd6c0;transform:translateY(-1px)}
+.leaf{display:flex;align-items:center;gap:8px;text-decoration:none;color:#15201c;padding:10px 11px 8px;font-size:13.5px;font-weight:700;min-height:43px;border-radius:8px 8px 0 0}
+.leaf:hover{background:#eff9f6}
 .leaf small{font-size:11px;font-weight:500;color:#708079}
+.mini-tabs{display:flex;width:100%;border-top:1px solid #e0eee9;border-radius:0 0 8px 8px;overflow:hidden}
+.mini-tabs a{flex:1;min-width:0;text-align:center;text-decoration:none;color:#174f41;background:#f4faf8;padding:6px 4px;font-size:10.5px;font-weight:800;line-height:1.2;border-left:1px solid #e0eee9;white-space:nowrap}
+.mini-tabs a:last-child{border-left:0}
+.mini-tabs a:hover{background:#dff4ed;color:#0f6d58}
+.mini-tabs.one a{border-left:0}
+.mini-tabs a.secondary{background:#eef5f3;color:#173f35}
+.mini-tabs a.secondary:hover{background:#dcece7}
 
 @media(max-width:700px){
   .wrap{padding-top:24px}
@@ -92,22 +101,22 @@ h1{margin:0 0 8px;font-size:30px}
         <div class="branch">
           <a class="branch-title" href="worksheets/math/index.html">الرياضيات</a>
           <div class="leaves">
-            <a class="leaf" href="grade-9/worksheets/math/index.html"><span>ثالث متوسط<br><small>Grade 9</small></span></a>
-            <a class="leaf" href="grade-10/worksheets/math/index.html"><span>أول ثانوي<br><small>Grade 10</small></span></a>
-            <a class="leaf" href="grade-11/worksheets/math/index.html"><span>ثاني ثانوي<br><small>Grade 11</small></span></a>
-            <a class="leaf" href="grade-12/worksheets/math/index.html"><span>ثالث ثانوي<br><small>Grade 12</small></span></a>
+            <div class="leaf-card"><a class="leaf" href="grade-9/worksheets/math/index.html"><span>ثالث متوسط<br><small>Grade 9</small></span></a><div class="mini-tabs"><a href="grade-9/worksheets/math/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-9/worksheets/math/worksheet-1-answers.html">بنك الإجابات</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-10/worksheets/math/index.html"><span>أول ثانوي<br><small>Grade 10</small></span></a><div class="mini-tabs"><a href="grade-10/worksheets/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-10/worksheets/worksheet-1-answers.html">بنك الإجابات</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-11/worksheets/math/index.html"><span>ثاني ثانوي<br><small>Grade 11</small></span></a><div class="mini-tabs"><a href="grade-11/worksheets/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-11/worksheets/worksheet-1-answers.html">بنك الإجابات</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-12/worksheets/math/index.html"><span>ثالث ثانوي<br><small>Grade 12</small></span></a><div class="mini-tabs"><a href="grade-12/worksheets/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-12/worksheets/worksheet-1-answers.html">بنك الإجابات</a></div></div>
           </div>
 
           <a class="branch-title" href="worksheets/english/index.html">اللغة الإنجليزية</a>
           <div class="leaves">
-            <a class="leaf" href="worksheets/english/level-1/index.html"><span>المستوى الأول<br><small>Level 1</small></span></a>
-            <a class="leaf" href="worksheets/english/level-2/index.html"><span>المستوى الثاني<br><small>Level 2</small></span></a>
-            <a class="leaf" href="worksheets/english/level-3/index.html"><span>المستوى الثالث<br><small>Level 3</small></span></a>
+            <div class="leaf-card"><a class="leaf" href="worksheets/english/level-1/index.html"><span>المستوى الأول<br><small>Level 1</small></span></a><div class="mini-tabs one"><a href="worksheets/english/level-1/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل والحلول</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="worksheets/english/level-2/index.html"><span>المستوى الثاني<br><small>Level 2</small></span></a><div class="mini-tabs one"><a href="worksheets/english/level-2/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل والحلول</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="worksheets/english/level-3/index.html"><span>المستوى الثالث<br><small>Level 3</small></span></a><div class="mini-tabs one"><a href="worksheets/english/level-3/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل والحلول</a></div></div>
           </div>
 
           <a class="branch-title" href="grade-9/worksheets/science/index.html">العلوم</a>
           <div class="leaves">
-            <a class="leaf" href="grade-9/worksheets/science/index.html"><span>ثالث متوسط<br><small>Grade 9</small></span></a>
+            <div class="leaf-card"><a class="leaf" href="grade-9/worksheets/science/index.html"><span>ثالث متوسط<br><small>Grade 9</small></span></a><div class="mini-tabs one"><a href="grade-9/worksheets/science/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل</a></div></div>
           </div>
         </div>
       </div>
@@ -120,10 +129,10 @@ h1{margin:0 0 8px;font-size:30px}
         <div class="branch">
           <a class="branch-title" href="activities/index.html">الرياضيات</a>
           <div class="leaves">
-            <a class="leaf" href="grade-9/index.html"><span>ثالث متوسط<br><small>Grade 9</small></span></a>
-            <a class="leaf" href="grade-10/index.html"><span>أول ثانوي<br><small>Grade 10</small></span></a>
-            <a class="leaf" href="grade-11/index.html"><span>ثاني ثانوي<br><small>Grade 11</small></span></a>
-            <a class="leaf" href="grade-12/index.html"><span>ثالث ثانوي<br><small>Grade 12</small></span></a>
+            <div class="leaf-card"><a class="leaf" href="grade-9/index.html"><span>ثالث متوسط<br><small>Grade 9</small></span></a><div class="mini-tabs"><a href="grade-9/questions.html">الأسئلة</a><a class="secondary" href="grade-9/answers.html">بنك الإجابات</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-10/index.html"><span>أول ثانوي<br><small>Grade 10</small></span></a><div class="mini-tabs"><a href="grade-10/full-questions.html">الأسئلة</a><a class="secondary" href="grade-10/full-answers.html">بنك الإجابات</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-11/index.html"><span>ثاني ثانوي<br><small>Grade 11</small></span></a><div class="mini-tabs"><a href="grade-11/questions.html">الأسئلة</a><a class="secondary" href="grade-11/answers.html">بنك الإجابات</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-12/index.html"><span>ثالث ثانوي<br><small>Grade 12</small></span></a><div class="mini-tabs"><a href="grade-12/questions.html">الأسئلة</a><a class="secondary" href="grade-12/answers.html">بنك الإجابات</a></div></div>
           </div>
         </div>
       </div>
