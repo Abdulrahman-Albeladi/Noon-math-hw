@@ -16,9 +16,9 @@ h1{margin:0 0 8px;font-size:30px}
 .sub{color:#52645d;line-height:1.7;font-size:16px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
-.choice{display:block;background:#fff;border:1px solid #cde9df;border-radius:14px;padding:30px 24px;text-decoration:none;color:#15201c;box-shadow:0 4px 16px rgba(0,0,0,.035);transition:.15s;text-align:center}
+.choice{display:flex;flex-direction:column;align-items:center;background:#fff;border:1px solid #cde9df;border-radius:14px;padding:30px 24px;text-decoration:none;color:#15201c;box-shadow:0 4px 16px rgba(0,0,0,.035);transition:.15s;text-align:center}
 .choice:hover{transform:translateY(-2px);box-shadow:0 7px 22px rgba(0,0,0,.07);border-color:#8fd6c0}
-.choice h2{margin:0 0 8px;font-size:24px}
+.choice:focus-visible{outline:3px solid #174f41;outline-offset:3px}.choice h2{margin:0 0 8px;font-size:24px;line-height:1.35}.choice .go{margin-top:auto}
 .label{color:#64756e;font-size:14px;margin-bottom:18px}
 .go{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 18px;border-radius:999px;background:#26b78a;color:#fff;font-weight:800;font-size:14px}
 .card{background:#fff;border:1px solid #cde9df;border-radius:12px;padding:22px}
@@ -71,24 +71,19 @@ h1{margin:0 0 8px;font-size:30px}
 <body>
 <main class="wrap">
   <section class="hero">
-    <img class="landing-logo" src="assets/noon-logo.svg" alt="Noon">
+    <img class="landing-logo" src="assets/noon-logo.svg" alt="نون">
     <h1>أوراق العمل والأنشطة التدريبية</h1>
     <div class="sub">اختر نوع المحتوى.</div>
   </section>
 
   <section class="grid">
-    <a class="choice" href="worksheets/midterm-2/index.html">
-      <h2>أوراق عمل الاختبار الثاني</h2>
-      <div class="label">Midterm 2 · الرياضيات · الصفوف 9–12</div>
-      <span class="go">اختيار الصف</span>
-    </a>
     <a class="choice" href="worksheets/index.html">
       <h2>أوراق العمل</h2>
       <div class="label">للاستعداد للاختبارات · حسب المادة والصف أو المستوى</div>
       <span class="go">عرض أوراق العمل</span>
     </a>
     <a class="choice" href="activities/index.html">
-      <h2>أنشطة تدريبية</h2>
+      <h2>الأنشطة التدريبية</h2>
       <div class="label">للرياضيات فقط · حسب الصف</div>
       <span class="go">عرض الأنشطة التدريبية</span>
     </a>
@@ -109,38 +104,38 @@ h1{margin:0 0 8px;font-size:30px}
         <div class="branch">
           <a class="branch-title" href="worksheets/math/index.html">الرياضيات</a>
           <div class="leaves">
-            <div class="leaf-card"><a class="leaf" href="grade-9/worksheets/math/index.html"><span>ثالث متوسط<br><small>Grade 9</small></span></a><div class="mini-tabs"><a href="grade-9/worksheets/math/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-9/worksheets/math/worksheet-1-answers.html">بنك الإجابات</a></div><div class="mini-tabs one video-row"><a href="https://youtu.be/R3nDJibZsBQ?si=RR8cU0lgs3Re7N4r" target="_blank" rel="noopener">مقاطع حل ورقة العمل</a></div></div>
-            <div class="leaf-card"><a class="leaf" href="grade-10/worksheets/math/index.html"><span>أول ثانوي<br><small>Grade 10</small></span></a><div class="mini-tabs"><a href="grade-10/worksheets/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-10/worksheets/worksheet-1-answers.html">بنك الإجابات</a></div></div>
-            <div class="leaf-card"><a class="leaf" href="grade-11/worksheets/math/index.html"><span>ثاني ثانوي<br><small>Grade 11</small></span></a><div class="mini-tabs"><a href="grade-11/worksheets/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-11/worksheets/worksheet-1-answers.html">بنك الإجابات</a></div></div>
-            <div class="leaf-card"><a class="leaf" href="grade-12/worksheets/math/index.html"><span>ثالث ثانوي<br><small>Grade 12</small></span></a><div class="mini-tabs"><a href="grade-12/worksheets/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-12/worksheets/worksheet-1-answers.html">بنك الإجابات</a></div><div class="mini-tabs one video-row"><a href="https://www.youtube.com/playlist?list=PLaLHdVcLNVyk" target="_blank" rel="noopener">مقاطع حل ورقة العمل</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-9/worksheets/math/index.html"><span>ثالث متوسط</span></a><div class="mini-tabs"><a href="grade-9/worksheets/math/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-9/worksheets/math/worksheet-1-answers.html">بنك الإجابات</a></div><div class="mini-tabs one video-row"><a href="https://youtu.be/R3nDJibZsBQ?si=RR8cU0lgs3Re7N4r" target="_blank" rel="noopener">مقاطع حل ورقة العمل</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-10/worksheets/math/index.html"><span>أول ثانوي</span></a><div class="mini-tabs"><a href="grade-10/worksheets/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-10/worksheets/worksheet-1-answers.html">بنك الإجابات</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-11/worksheets/math/index.html"><span>ثاني ثانوي</span></a><div class="mini-tabs"><a href="grade-11/worksheets/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-11/worksheets/worksheet-1-answers.html">بنك الإجابات</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-12/worksheets/math/index.html"><span>ثالث ثانوي</span></a><div class="mini-tabs"><a href="grade-12/worksheets/worksheet-1-questions.html">الأسئلة</a><a class="secondary" href="grade-12/worksheets/worksheet-1-answers.html">بنك الإجابات</a></div><div class="mini-tabs one video-row"><a href="https://www.youtube.com/playlist?list=PLaLHdVcLNVyk" target="_blank" rel="noopener">مقاطع حل ورقة العمل</a></div></div>
           </div>
 
           <a class="branch-title" href="worksheets/english/index.html">اللغة الإنجليزية</a>
           <div class="leaves">
-            <div class="leaf-card"><a class="leaf" href="worksheets/english/level-1/index.html"><span>المستوى الأول<br><small>Level 1</small></span></a><div class="mini-tabs one"><a href="worksheets/english/level-1/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل والحلول</a></div></div>
-            <div class="leaf-card"><a class="leaf" href="worksheets/english/level-2/index.html"><span>المستوى الثاني<br><small>Level 2</small></span></a><div class="mini-tabs one"><a href="worksheets/english/level-2/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل والحلول</a></div></div>
-            <div class="leaf-card"><a class="leaf" href="worksheets/english/level-3/index.html"><span>المستوى الثالث<br><small>Level 3</small></span></a><div class="mini-tabs one"><a href="worksheets/english/level-3/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل والحلول</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="worksheets/english/level-1/index.html"><span>المستوى الأول</span></a><div class="mini-tabs one"><a href="worksheets/english/level-1/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل والحلول</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="worksheets/english/level-2/index.html"><span>المستوى الثاني</span></a><div class="mini-tabs one"><a href="worksheets/english/level-2/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل والحلول</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="worksheets/english/level-3/index.html"><span>المستوى الثالث</span></a><div class="mini-tabs one"><a href="worksheets/english/level-3/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل والحلول</a></div></div>
           </div>
 
           <a class="branch-title" href="grade-9/worksheets/science/index.html">العلوم</a>
           <div class="leaves">
-            <div class="leaf-card"><a class="leaf" href="grade-9/worksheets/science/index.html"><span>ثالث متوسط<br><small>Grade 9</small></span></a><div class="mini-tabs one"><a href="grade-9/worksheets/science/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-9/worksheets/science/index.html"><span>ثالث متوسط</span></a><div class="mini-tabs one"><a href="grade-9/worksheets/science/worksheet-1.pdf" target="_blank" rel="noopener">ورقة العمل</a></div></div>
           </div>
         </div>
       </div>
 
       <div class="tree-root">
         <a class="tree-root-title" href="activities/index.html">
-          <span>أنشطة تدريبية</span><span class="arrow">←</span>
+          <span>الأنشطة التدريبية</span><span class="arrow">←</span>
         </a>
 
         <div class="branch">
           <a class="branch-title" href="activities/index.html">الرياضيات</a>
           <div class="leaves">
-            <div class="leaf-card"><a class="leaf" href="grade-9/index.html"><span>ثالث متوسط<br><small>Grade 9</small></span></a><div class="mini-tabs"><a href="grade-9/questions.html">الأسئلة</a><a class="secondary" href="grade-9/answers.html">بنك الإجابات</a></div></div>
-            <div class="leaf-card"><a class="leaf" href="grade-10/index.html#week-7-episode-2"><span>أول ثانوي<br><small>Grade 10 · الأسبوع ٧</small></span></a><div class="mini-tabs one week-row"><a href="grade-10/index.html#week-7-episode-2">واجبات الأسبوع ٧</a></div><div class="mini-tabs"><a href="grade-10/full-questions.html">الأسئلة السابقة</a><a class="secondary" href="grade-10/full-answers.html">بنك الإجابات السابق</a></div></div>
-            <div class="leaf-card"><a class="leaf" href="grade-11/index.html#week-7-episode-2"><span>ثاني ثانوي<br><small>Grade 11 · الأسبوع ٧</small></span></a><div class="mini-tabs one week-row"><a href="grade-11/index.html#week-7-episode-2">واجبات الأسبوع ٧</a></div><div class="mini-tabs"><a href="grade-11/questions.html">الأسئلة السابقة</a><a class="secondary" href="grade-11/answers.html">بنك الإجابات السابق</a></div></div>
-            <div class="leaf-card"><a class="leaf" href="grade-12/index.html"><span>ثالث ثانوي<br><small>Grade 12</small></span></a><div class="mini-tabs"><a href="grade-12/questions.html">الأسئلة</a><a class="secondary" href="grade-12/answers.html">بنك الإجابات</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-9/index.html"><span>ثالث متوسط</span></a><div class="mini-tabs"><a href="grade-9/questions.html">الأسئلة</a><a class="secondary" href="grade-9/answers.html">بنك الإجابات</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-10/index.html#week-7-episode-2"><span>أول ثانوي<br><small>الأسبوع ٧</small></span></a><div class="mini-tabs one week-row"><a href="grade-10/index.html#week-7-episode-2">واجبات الأسبوع ٧</a></div><div class="mini-tabs"><a href="grade-10/full-questions.html">الأسئلة السابقة</a><a class="secondary" href="grade-10/full-answers.html">بنك الإجابات السابق</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-11/index.html#week-7-episode-2"><span>ثاني ثانوي<br><small>الأسبوع ٧</small></span></a><div class="mini-tabs one week-row"><a href="grade-11/index.html#week-7-episode-2">واجبات الأسبوع ٧</a></div><div class="mini-tabs"><a href="grade-11/questions.html">الأسئلة السابقة</a><a class="secondary" href="grade-11/answers.html">بنك الإجابات السابق</a></div></div>
+            <div class="leaf-card"><a class="leaf" href="grade-12/index.html"><span>ثالث ثانوي</span></a><div class="mini-tabs"><a href="grade-12/questions.html">الأسئلة</a><a class="secondary" href="grade-12/answers.html">بنك الإجابات</a></div></div>
           </div>
         </div>
       </div>
